@@ -1,7 +1,7 @@
 body {
   margin: 0px;
-  font-family: 'Amatic SC', cursive;
-  background-image: url("../images/fundo_anfrita.webp");
+  font-family: 'Rubik', sans-serif;
+  background-image: url("../images/fundoAnfri.jpg");
 	background-repeat: no-repeat;
 	background-position: 0 0;
   background-attachment: fixed;
@@ -12,23 +12,23 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container {
   width: 100vw;
   height: 100vh;
-  background: #00000000;
+  background: #0000001a;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .box {
   width: 1100px;
   height: 850px;
-  background: #000000;
+  background: #000000f8;
   z-index: -10;
   text-align: center;
 }
@@ -50,7 +50,7 @@ body {
   width: 98%;
   margin: auto;
   align-self: center;
-  background: url("../images/anfrita_abertujra.gif");
+  background: url("../images/inicioAnfri.gif");
   z-index: 1;
 }
 
@@ -64,7 +64,6 @@ body {
   height: 200%;
   width: 200%;
   transform: rotate(-45deg);
-  overflow: hidden;
   background: linear-gradient(to right, #8400ff 20%, #b206b2 40%, #4b00c4 50%, #c098f9 55%, #8b00ee 70%, #a643c1 100%);
   background-size: 200% auto;
   animation: shine 2s linear infinite;
@@ -106,7 +105,7 @@ body {
   --clip-top: calc(var(--stack-height) * var(--index));
   --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
   clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
-  animation: stack 340ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), glitch 3s ease infinite 0.1s alternate-reverse;
+  animation: stack 340ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), glitch 1s ease infinite 0.1s alternate-reverse;
 }
 
 .stack span:nth-child(odd) {
@@ -156,60 +155,5 @@ body {
   100% {
     text-shadow: none;
     transform: none;
-  }
-}
-
-$particleNum: 200;
-$circleSize: 25;
-$startPositionY: random(10) + 100;
-$moveDuration: 5000 + random(9000) + ms;
-
-.circle-container {
-
-  position: absolute;
-  transform: translateY(-10vh);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  z-index: -20;
-
-  .circle {
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    mix-blend-mode: screen;
-    z-index: -20;
-    background-image: radial-gradient(hsl(267, 100%, 60%),hsl(267, 100%, 60%) 10%, hsla(267, 100%, 60%, 0) 56%);
-    opacity: 1;
-    transform: scale3d(0.4, 0.4, 1);
-  }
-
-
-  @for $i from 1 through $particleNum {
-    &:nth-child(#{$i}) {
-      width: $circleSize + px;
-      height: $circleSize + px;
-      $framesName: "move-frames-" + $i;
-      animation-name: #{$framesName};
-      animation-duration: $moveDuration;
-      animation-delay: random(37000) + ms;
-
-      @keyframes #{$framesName} {
-        from {
-          transform: translate3d(#{random(100) + vw},
-            #{$startPositionY + vh},
-            0);
-        }
-
-        to {
-          transform: translate3d(#{random(100) + vw},
-            #{- $startPositionY - random(30) + vh},
-            0);
-        }
-      }
-
-      .circle {
-        animation-delay: random(4000) + ms;
-      }
-    }
   }
 }
