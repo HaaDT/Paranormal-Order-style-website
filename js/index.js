@@ -28,30 +28,39 @@ function ThemeUnfadeVolume(theme) {
   }, 10);
 }
 
-function fade(element) {
-  var op = 1;
-  var timer = setInterval(function () {
-    if (op <= 0.1) {
-      clearInterval(timer);
-      document.getElementById(theme).style.display = "none";
-    }
-    document.getElementById(theme).style.opacity = op;
-    document.getElementById(theme).style.filter =
-      "alpha(opacity=" + op * 100 + ")";
-    op -= op * 0.1;
-  }, 50);
-}
-
-function unfade(element) {
+function Unfade(element) {
   var op = 0.1;
-  document.getElementById(theme).style.display = "block";
+  document.getElementById(element).style.display = "block";
   var timer = setInterval(function () {
     if (op >= 1) {
       clearInterval(timer);
     }
-    document.getElementById(theme).style.opacity = op;
-    document.getElementById(theme).style.filter =
+    document.getElementById(element).style.opacity = op;
+    document.getElementById(element).style.filter =
       "alpha(opacity=" + op * 100 + ")";
-    op += op * 0.1;
+    op += op * 0.01;
   }, 10);
 }
+
+function Fade(element) {
+  var op = 1;
+  var timer = setInterval(function () {
+    if (op <= 0.1) {
+      clearInterval(timer);
+      document.getElementById(element).style.display = "none";
+      Unfade("simbolo");
+    } 
+    document.getElementById(element).style.opacity = op;
+    document.getElementById(element).style.filter =
+      "alpha(opacity=" + op * 100 + ")";
+    op -= op * 0.01;
+  }, 50);
+}
+
+window.onload = function () {
+  document.getElementById("black-screen").onclick = function () {
+    ThemeUnfadeVolume("audio");
+    Fade("black-screen");
+    return false;
+  };
+};

@@ -58,7 +58,6 @@ function unfade(element) {
 
 window.onload = function () {
   document.getElementById("close").onclick = function () {
-    ThemePlayInstant("audio");
     ThemeUnfadeVolume("audio");
     this.remove();
     return false;
