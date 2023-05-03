@@ -16,11 +16,13 @@ body {
 }
 
 .simbolo {
-  background-image: url("images/simbolo.png");
+  background: url("../images/icon_paranormal.webp");
   z-index: 10;
-  width: 500px;
-  height: 500px;
+  background-repeat: no-repeat;
   opacity: 0;
+  position: absolute;
+  margin: 50vh auto 0;
+  transform: translateY(-50%);
 }
 
 .black-screen {

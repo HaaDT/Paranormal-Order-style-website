@@ -38,7 +38,7 @@ function Unfade(element) {
     document.getElementById(element).style.opacity = op;
     document.getElementById(element).style.filter =
       "alpha(opacity=" + op * 100 + ")";
-    op += op * 0.01;
+    op += op * 0.02;
   }, 10);
 }
 
@@ -53,7 +53,7 @@ function Fade(element) {
     document.getElementById(element).style.opacity = op;
     document.getElementById(element).style.filter =
       "alpha(opacity=" + op * 100 + ")";
-    op -= op * 0.01;
+    op -= op * 0.02;
   }, 50);
 }
 
