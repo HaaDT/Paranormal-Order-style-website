@@ -47,7 +47,7 @@ function Fade(element) {
   var timer = setInterval(function () {
     if (op <= 0.1) {
       clearInterval(timer);
-      document.getElementById(element).style.display = "none";
+       document.getElementById(element).style.display = "none";
       Unfade("simbolo");
     } 
     document.getElementById(element).style.opacity = op;

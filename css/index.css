@@ -21,8 +21,6 @@ body {
   background-repeat: no-repeat;
   opacity: 0;
   position: absolute;
-  margin: 50vh auto 0;
-  transform: translateY(-50%);
 }
 
 .black-screen {
